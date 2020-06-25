@@ -2,7 +2,7 @@
 
 Backend bcp challenge code.
 
-This project use java 14 to run. 
+This project uses java 14 to run. 
 
 ### Build:
 Execute:
@@ -31,7 +31,7 @@ docker stop bcp-challenge
 
 Start/restart:
 ````
-docker stop bcp-challenge
+docker start bcp-challenge
 ````
 
 Reload:
