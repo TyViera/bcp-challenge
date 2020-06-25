@@ -19,14 +19,14 @@ public class ErrorControllerAdvice {
   @ExceptionHandler(ChallengeException.class)
   public ResponseEntity<ResponseClient> handleChallengeException(
       ChallengeException challengeException) {
-    log.debug("handle challenge exception", challengeException);
+    log.warn("handle challenge exception", challengeException);
     return new ResponseEntity<>(getResponseFromError(challengeException.getError()),
         challengeException.getError().getHttpCode());
   }
 
   @ExceptionHandler(Exception.class)
   public ResponseEntity<ResponseClient> handleException(Exception exception) {
-    log.debug("handle unexpected error", exception);
+    log.warn("handle unexpected error", exception);
     return new ResponseEntity<>(getResponseFromError(ErrorEnums.UNKNOWN),
         HttpStatus.INTERNAL_SERVER_ERROR);
   }

@@ -1,0 +1,39 @@
+<br/>
+<h1 class="text-center">App: Tipo de cambio BCP</h1>
+<hr/>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <app-exchange-rate (exchangeRateAction)="onExchangeRate($event)"></app-exchange-rate>
+    </div>
+    <div class="col-md-7">
+      <div class="container-fluid">
+        <h4>Últimos valores consultados:</h4>
+        <table class="table">
+          <tr>
+            <td><b>Moneda de origen:</b></td>
+            <td>{{exchangeRateResponseModel.homeCurrency}}</td>
+          </tr>
+          <tr>
+            <td><b>Moneda de destino:</b></td>
+            <td>{{exchangeRateResponseModel.targetCurrency}}</td>
+          </tr>
+          <tr>
+            <td><b>Tipo de cambio activo:</b></td>
+            <td>{{exchangeRateResponseModel.rate| number: '1.4-4'}}</td>
+          </tr>
+          <tr>
+            <td><b>Monto a cambiar:</b></td>
+            <td>{{exchangeRateResponseModel.amount| number: '1.4-4'}}</td>
+          </tr>
+          <tr>
+            <td><b>Monto cambiado:</b></td>
+            <td>{{exchangeRateResponseModel.exchangedAmount | number: '1.4-4'}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

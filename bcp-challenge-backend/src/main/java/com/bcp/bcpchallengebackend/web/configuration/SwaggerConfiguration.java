@@ -1,4 +1,4 @@
-package com.bcp.bcpchallengebackend.config;
+package com.bcp.bcpchallengebackend.web.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.bcp.bcpchallengebackend.config;
+package com.bcp.bcpchallengebackend.framework.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;

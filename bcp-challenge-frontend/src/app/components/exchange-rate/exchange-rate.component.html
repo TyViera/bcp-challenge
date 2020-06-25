@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <form [formGroup]="exchangeRateForm" (ngSubmit)="submitExchangeRate()">
+    <div class="form-group">
+      <label for="inputHomeCurrency">Moneda de origen</label>
+      <input autofocus type="text" formControlName="homeCurrency"
+             class="form-control" id="inputHomeCurrency"
+             aria-describedby="inputHomeCurrencyHelp" placeholder="PEN"
+             pattern="[A-Z]{3}" minlength="3" maxlength="3">
+      <small id="inputHomeCurrencyHelp" class="form-text text-muted">Moneda en código de tres
+        letras.</small>
+    </div>
+    <div class="form-group">
+      <label for="inputTargetCurrency">Moneda de destino</label>
+      <input type="text" formControlName="targetCurrency"
+             class="form-control" id="inputTargetCurrency"
+             aria-describedby="inputTargetCurrencyHelp" placeholder="USD"
+             pattern="[A-Z]{3}" minlength="3" maxlength="3">
+      <small id="inputTargetCurrencyHelp" class="form-text text-muted">Moneda en código de tres
+        letras.</small>
+    </div>
+    <div class="form-group">
+      <label for="inputAmount">Monto a cambiar</label>
+      <input type="number" formControlName="amount"
+             class="form-control" id="inputAmount"
+             aria-describedby="inputAmountHelp" placeholder="30"
+             min="0.0001" step="1">
+    </div>
+    <button type="submit" class="btn btn-primary">¡Cambiar!</button>
+  </form>
+</div>
