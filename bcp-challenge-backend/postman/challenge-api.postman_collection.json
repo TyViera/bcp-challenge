@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "27661450-bb35-4e63-bbc3-a6970ba2609f",
+		"name": "challenge-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/exchange-rate?homeCurrency=PEN&targetCurrency=USD&amount=3123",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3a086f5d-0cca-4f53-a2ca-ac3c7767df0b",
+						"exec": [
+							"// Función para confirmar el status OK de la petición\r",
+							"pm.test(\"Confirmar Status 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Función para confirmar estructura de respuesta correcta\r",
+							"pm.test(\"Estructura de respuesta correcta\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"homeCurrency\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"targetCurrency\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"rate\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"amount\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"exchangedAmount\");\r",
+							"});\r",
+							"\r",
+							"// Función para validar tipo de cambio correcto\r",
+							"pm.test(\"Validar tipo de cambio correcto\", function () {\r",
+							"    var rate = pm.response.json().rate;\r",
+							"    var amount = pm.response.json().amount;\r",
+							"    var exchangedAmount = pm.response.json().exchangedAmount;\r",
+							"\r",
+							"    var roundFactor = Math.pow(10, 4);\r",
+							"    var calcExchangeAmount = Math.round(rate * amount * roundFactor) / roundFactor;\r",
+							"\r",
+							"    pm.expect(exchangedAmount).to.eq(calcExchangeAmount);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/exchange-rate?homeCurrency=PEN&targetCurrency=USD&amount=3123.43",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"exchange-rate"
+					],
+					"query": [
+						{
+							"key": "homeCurrency",
+							"value": "PEN"
+						},
+						{
+							"key": "targetCurrency",
+							"value": "USD"
+						},
+						{
+							"key": "amount",
+							"value": "3123.43"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
