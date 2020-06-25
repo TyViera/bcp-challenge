@@ -1,22 +1,22 @@
-#Exchange rate backend challenge
+# Exchange rate backend challenge
 
 Backend bcp challenge code.
 
 This project use java 14 to run. 
 
-###Build:
+### Build:
 Execute:
 ````
 mvn clean install
 ````
 
-###Run:
+### Run:
 Execute:
 ````
 mvn spring-boot:run
 ````
 
-###Docker:
+### Docker:
 Execute the first time:
 ````
 mvn clean package
